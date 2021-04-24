@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Assets;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,7 +29,22 @@ public class GameScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        try
+        {
+            SaveGame = SaveGame.Load();
+        }
+        catch
+        {
+            SaveGame = new SaveGame
+            {
+                Name = "Staś",
+                LiczbaOwiec = 1
+            };
+        }
+
+        LiczbaOwiec = SaveGame.LiczbaOwiec;
+
+        UpdatePoints();
     }
 
     float timer = 0;
@@ -87,9 +102,14 @@ public class GameScript : MonoBehaviour
             CenaOwcy *= 4;
         }
 
+        SaveGame.LiczbaOwiec = LiczbaOwiec;
+        SaveGame.Save();
+
         UpdatePoints();
         return CenaOwcy;
     }
+
+    public SaveGame SaveGame { get; set; }
 
 
     internal int KupNozyczki()

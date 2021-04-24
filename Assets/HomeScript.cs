@@ -8,7 +8,7 @@ public class HomeScript : MonoBehaviour, IPointerClickHandler
 {
     public void OnPointerClick(PointerEventData eventData)
     {
-        SceneManager.LoadScene("HomeScene", LoadSceneMode.Additive);
+        SceneManager.LoadScene("HomeScreen", LoadSceneMode.Additive);
     }
 
     // Start is called before the first frame update
@@ -22,4 +22,5 @@ public class HomeScript : MonoBehaviour, IPointerClickHandler
     {
         
     }
+
 }
