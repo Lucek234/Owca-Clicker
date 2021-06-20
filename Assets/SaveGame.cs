@@ -1,19 +1,21 @@
-﻿//using Newtonsoft.Json;
-using System;
-using System.IO;
+﻿using System.IO;
 using UnityEngine;
 namespace Assets
 {
     [System.Serializable]
     public class SaveGame 
     {
-        public string Name;
-        public int LiczbaOwiec;
+        public string Name = "Staś";
+        public int LiczbaOwiec = 1;
+        public int LiczbaAutoMatycznychNozyczek = 0;
+        public int LiczbaPrzyspieszenia = 0;
+      public int LiczbaNozyczek = 1;
+       public int Points;
+        public int EkoLevel = 1;
 
         internal void Save()
         {
             var path = Path.Combine(Application.persistentDataPath, "save.dat");
-
             var str = JsonUtility.ToJson(this);
             File.WriteAllText(path, str);
         }

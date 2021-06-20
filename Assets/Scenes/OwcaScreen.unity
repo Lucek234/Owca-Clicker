@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 139744749}
   - component: {fileID: 139744748}
   m_Layer: 5
-  m_Name: OdetnijGloweText
+  m_Name: AutoNozyczkiText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,16 +269,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 354193651}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2025029509}
+  m_Father: {fileID: 580365289}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -489.48, y: 175}
+  m_AnchoredPosition: {x: 5.0200195, y: -34.49997}
   m_SizeDelta: {x: 920.0901, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &436534978
@@ -360,6 +360,45 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 436534978}
   m_CullTransparentMesh: 1
+--- !u!1 &580365288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 580365289}
+  m_Layer: 5
+  m_Name: Teksty
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &580365289
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580365288}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 354193654}
+  - {fileID: 1321353558}
+  - {fileID: 2036802662}
+  - {fileID: 1422064750}
+  m_Father: {fileID: 2025029509}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -544, y: 260}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &793449441
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,16 +478,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96479c21ec59d31408a052fdb2919302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Points: 0
-  CenaOwcy: 1
-  LiczbaOwiec: 1
-  CenaLepszychNozyczek: 50
-  LiczbaLepszychNozyczek: 1
-  CenaAutoNozyczek: 100
-  LiczbaNozyczek: 0
-  CenaLepszychAutoNozyczek: 100
-  CenaNozyczek: 10
-  LiczbaAutoNozyczek: 0
+  SaveGame:
+    Name: "Sta\u015B"
+    LiczbaOwiec: 1
+    LiczbaAutoMatycznychNozyczek: 0
+    LiczbaPrzyspieszenia: 0
+    LiczbaNozyczek: 1
+    Points: 0
   SheepElement: {fileID: 2135618460}
   PointsElement: {fileID: 2036802661}
   LiczbaOwiecElement: {fileID: 354193651}
@@ -456,6 +492,11 @@ MonoBehaviour:
   Canvas: {fileID: 2025029505}
   NozyczkiAsset: {fileID: 8498290964095572939, guid: 1c926a26c568c8d459485eab25659953, type: 3}
   FloatingPointsAsset: {fileID: 5536136929512152186, guid: 6d508d0466612ce4ca765181d0e1606b, type: 3}
+  BuyOwcaButtonText: {fileID: 436534980}
+  LepszeAutoNozyczkiText: {fileID: 933832888}
+  AutoMatyczneNozyczki: {fileID: 139744748}
+  LepszeNozyczkiText: {fileID: 820092265}
+  LiczbaNozyczekElement: {fileID: 1422064747}
 --- !u!1 &820092263
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,7 +509,7 @@ GameObject:
   - component: {fileID: 820092266}
   - component: {fileID: 820092265}
   m_Layer: 5
-  m_Name: KupNozyczkiText
+  m_Name: NozyczkiText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -547,7 +588,7 @@ GameObject:
   - component: {fileID: 933832889}
   - component: {fileID: 933832888}
   m_Layer: 5
-  m_Name: KupPrzyspieszenieText
+  m_Name: PrzyspieszenieText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -626,9 +667,8 @@ GameObject:
   - component: {fileID: 1082924987}
   - component: {fileID: 1082924986}
   - component: {fileID: 1082924985}
-  - component: {fileID: 1082924984}
   m_Layer: 5
-  m_Name: KupNozyczkiButton
+  m_Name: LepszeNozyczkiButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -641,33 +681,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1082924982}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 820092264}
-  m_Father: {fileID: 2025029509}
-  m_RootOrder: 7
+  m_Father: {fileID: 1296641697}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 141.39, y: -172}
+  m_AnchoredPosition: {x: -350, y: 37.5}
   m_SizeDelta: {x: 240.1352, y: 50.5475}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1082924984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1082924982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5ce6c2955395124792bb019813f271a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EventSystem: {fileID: 793449441}
-  TextElement: {fileID: 820092263}
 --- !u!114 &1082924985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -711,7 +737,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1082924986}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 793449445}
+        m_TargetAssemblyTypeName: GameScript, Assembly-CSharp
+        m_MethodName: BuyLepszeNozyczki
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1082924986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -776,11 +814,11 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165551093}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2025029509}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -825,6 +863,45 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165551093}
   m_CullTransparentMesh: 1
+--- !u!1 &1296641696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1296641697}
+  m_Layer: 5
+  m_Name: Przyciski
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1296641697
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296641696}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1753101820}
+  - {fileID: 1679040996}
+  - {fileID: 1082924983}
+  - {fileID: 1576295168}
+  m_Father: {fileID: 2025029509}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 524, y: -260}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1314601461
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,7 +934,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2025029509}
-  m_RootOrder: 9
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -983,16 +1060,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321353557}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2025029509}
-  m_RootOrder: 6
+  m_Father: {fileID: 580365289}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -379.86, y: 115.5}
+  m_AnchoredPosition: {x: 114.640015, y: -94}
   m_SizeDelta: {x: 700.8453, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1321353559
@@ -1037,6 +1114,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321353557}
   m_CullTransparentMesh: 1
+--- !u!1 &1422064747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1422064750}
+  - component: {fileID: 1422064749}
+  - component: {fileID: 1422064748}
+  m_Layer: 5
+  m_Name: LiczbaNozyczekTekst
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1422064748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422064747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0.9964247, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 77
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 7
+    m_MaxSize: 77
+    m_Alignment: 5
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Liczba nozyczek: 1'
+--- !u!222 &1422064749
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422064747}
+  m_CullTransparentMesh: 1
+--- !u!224 &1422064750
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422064747}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 580365289}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 5.0231, y: 36}
+  m_SizeDelta: {x: 920.0901, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1562316514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,9 +1288,8 @@ GameObject:
   - component: {fileID: 1576295172}
   - component: {fileID: 1576295171}
   - component: {fileID: 1576295170}
-  - component: {fileID: 1576295169}
   m_Layer: 5
-  m_Name: KupPrzyspieszenieButton
+  m_Name: LepszeAutoNozyczkiButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1147,33 +1302,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1576295167}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 933832887}
-  m_Father: {fileID: 2025029509}
-  m_RootOrder: 8
+  m_Father: {fileID: 1296641697}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 141.39, y: -233}
+  m_AnchoredPosition: {x: -350, y: -23.5}
   m_SizeDelta: {x: 240.1352, y: 50.5475}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1576295169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576295167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 952e477effb09d9408839a5c820a5f5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EventSystem: {fileID: 793449441}
-  TextElement: {fileID: 933832886}
 --- !u!114 &1576295170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1217,7 +1358,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1576295171}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 793449445}
+        m_TargetAssemblyTypeName: GameScript, Assembly-CSharp
+        m_MethodName: BuyLepszeAutoNozyczki
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1576295171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1268,9 +1421,8 @@ GameObject:
   - component: {fileID: 1679040999}
   - component: {fileID: 1679040998}
   - component: {fileID: 1679040997}
-  - component: {fileID: 1679041000}
   m_Layer: 5
-  m_Name: OdetnijGloweButton
+  m_Name: AutoMatyczneNozyczkiButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1283,17 +1435,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679040995}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 139744747}
-  m_Father: {fileID: 2025029509}
-  m_RootOrder: 5
+  m_Father: {fileID: 1296641697}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 140.73, y: -110.0815}
+  m_AnchoredPosition: {x: -350, y: 99.41852}
   m_SizeDelta: {x: 238.81, y: 50.1631}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1679040997
@@ -1339,7 +1491,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1679040998}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 793449445}
+        m_TargetAssemblyTypeName: GameScript, Assembly-CSharp
+        m_MethodName: BuyAutoMatyczneNozycki
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1679040998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1378,20 +1542,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679040995}
   m_CullTransparentMesh: 1
---- !u!114 &1679041000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1679040995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f54cde7387d8fb48a88591b7f6151f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EventSystem: {fileID: 793449441}
-  TextElement: {fileID: 139744746}
 --- !u!1 &1753101819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,7 +1554,6 @@ GameObject:
   - component: {fileID: 1753101823}
   - component: {fileID: 1753101822}
   - component: {fileID: 1753101821}
-  - component: {fileID: 1753101824}
   m_Layer: 5
   m_Name: KupOwceButton
   m_TagString: Untagged
@@ -1419,17 +1568,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1753101819}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 436534979}
-  m_Father: {fileID: 2025029509}
-  m_RootOrder: 4
+  m_Father: {fileID: 1296641697}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 140.0676, y: -42.2737}
+  m_AnchoredPosition: {x: -350, y: 167.22633}
   m_SizeDelta: {x: 240.1352, y: 50.5475}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1753101821
@@ -1475,7 +1624,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1753101822}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 793449445}
+        m_TargetAssemblyTypeName: OwcaScript, Assembly-CSharp
+        m_MethodName: BuySheep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1753101822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1514,20 +1675,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1753101819}
   m_CullTransparentMesh: 1
---- !u!114 &1753101824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1753101819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 912cde0e2b6e0944c98b597cc1dca218, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EventSystem: {fileID: 793449441}
-  TextElement: {fileID: 436534978}
 --- !u!1 &2025029505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,16 +1766,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 354193654}
   - {fileID: 1165551094}
   - {fileID: 2135618461}
-  - {fileID: 2036802662}
-  - {fileID: 1753101820}
-  - {fileID: 1679040996}
-  - {fileID: 1321353558}
-  - {fileID: 1082924983}
-  - {fileID: 1576295168}
   - {fileID: 1314601462}
+  - {fileID: 580365289}
+  - {fileID: 1296641697}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1662,16 +1804,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036802661}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2025029509}
-  m_RootOrder: 3
+  m_Father: {fileID: 580365289}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -468.3, y: 50}
+  m_AnchoredPosition: {x: 26.200012, y: -159.5}
   m_SizeDelta: {x: 877.7363, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2036802663
@@ -1747,7 +1889,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2025029509}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1801,7 +1943,50 @@ MonoBehaviour:
   m_GameObject: {fileID: 2135618460}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b86a7c581c9ecb846b509e88fd69ca4d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EventSystem: {fileID: 793449441}
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 2135618462}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 793449445}
+        m_TargetAssemblyTypeName: GameScript, Assembly-CSharp
+        m_MethodName: OnSheepClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
