@@ -1,21 +1,32 @@
 using Assets;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 
 public class KurczakScript : MonoBehaviour
 {
+    public GameObject Canvas;
+    public GameObject EcoText;
+
+    public GameObject EcoWybiegButtonText;
+    public GameObject FloatingPointsAsset;
+    public GameObject KurczakElement;
+    public GameObject PunktyText;
+
     public int EcoLevel
     {
         get => SaveGame.EkoLevel;
         set => SaveGame.EkoLevel = value;
     }
-    SaveGame SaveGame { get; set; }
-    public GameObject FloatingPointsAsset;
-    public GameObject KurczakElement;
-    public GameObject Canvas;
-    public int CenaEko => 500 *(int) Mathf.Pow(2, EcoLevel);
+
+    private SaveGame SaveGame { get; set; }
+    public int CenaEko => 500 * (int) Mathf.Pow(2, EcoLevel);
+
+    public int Points
+    {
+        get => SaveGame.Points;
+        set => SaveGame.Points = value;
+    }
+
+    public int KurczakDeltaPoints => 5 * EcoLevel;
+
     private void Start()
     {
         try
@@ -31,18 +42,11 @@ public class KurczakScript : MonoBehaviour
     }
 
 
-
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
 
-    public int Points
-    {
-        get => SaveGame.Points;
-        set => SaveGame.Points = value;
-    }
     private void ShowAddPoints(int addPoints, Color color, int fontSize = 30)
     {
         GameObject floating = Instantiate(FloatingPointsAsset, Canvas.transform);
@@ -53,15 +57,14 @@ public class KurczakScript : MonoBehaviour
         int dx = UnityEngine.Random.Range(-100, 100);
         int dy = UnityEngine.Random.Range(-50, 100);
         Vector2 randPos = new Vector2(dx, dy);
-        floating.GetComponent<RectTransform>().anchoredPosition = KurczakElement.GetComponent<RectTransform>().anchoredPosition + randPos;
+        floating.GetComponent<RectTransform>().anchoredPosition =
+            KurczakElement.GetComponent<RectTransform>().anchoredPosition + randPos;
     }
-
-    public int KurczakDeltaPoints => 5 * EcoLevel;
 
     public void OnKurczakClick()
     {
         var deltaPoints = KurczakDeltaPoints;
-        Points +=KurczakDeltaPoints;
+        Points += KurczakDeltaPoints;
         UpdatePoints();
         ShowAddPoints(deltaPoints, Color.white);
     }
@@ -72,12 +75,8 @@ public class KurczakScript : MonoBehaviour
         Points -= CenaEko;
         EcoLevel += 1;
         UpdatePoints();
-
     }
 
-    public GameObject EcoWybiegButtonText;
-    public GameObject PunktyText;
-    public GameObject EcoText;
     public void UpdatePoints()
     {
         PunktyText.GetComponent<Text>().text = $"Punkty: {Points}p";

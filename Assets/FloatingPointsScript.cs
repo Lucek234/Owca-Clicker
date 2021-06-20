@@ -1,38 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 public class FloatingPointsScript : MonoBehaviour
 {
+    public float DeltaPos = 100;
+    private float EndPos = 200;
+    public float FloatTime = 10;
+    private bool isDestroyed;
+
+    // Update is called once per frame
+
+    private float StartPos;
+    private float timer;
 
     public RectTransform rectTransform => GetComponent<RectTransform>();
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         //UpdatePos(StartPos);
         StartPos = rectTransform.anchoredPosition.y;
         EndPos = StartPos + DeltaPos;
     }
 
-    // Update is called once per frame
-
-    float StartPos = 0;
-    float EndPos = 200;
-    public float DeltaPos = 100;
-    public float FloatTime = 10;
-    float timer = 0;
-    bool isDestroyed = false;
-
-    void UpdatePos(float posVal)
+    private void UpdatePos(float posVal)
     {
         var pos = rectTransform.anchoredPosition;
         pos.y = posVal;
         rectTransform.anchoredPosition = pos;
-
     }
 
-    void Update()
+    private void Update()
     {
         if (isDestroyed) return;
         timer += Time.deltaTime;
