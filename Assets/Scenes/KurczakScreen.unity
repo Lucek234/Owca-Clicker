@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 188462563}
   - component: {fileID: 188462562}
   m_Layer: 5
-  m_Name: Text
+  m_Name: WiecejKurczakowButtonTekst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -690,8 +690,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -195.48013, y: 190}
-  m_SizeDelta: {x: 215.85, y: 57.9257}
+  m_AnchoredPosition: {x: -134.68631, y: 191.14566}
+  m_SizeDelta: {x: 237.843, y: 58.3326}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &561165849
 MonoBehaviour:
@@ -932,8 +932,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -280.66, y: 120}
-  m_SizeDelta: {x: 386.21, y: 57.9257}
+  m_AnchoredPosition: {x: -228.5452, y: 120.65399}
+  m_SizeDelta: {x: 425.561, y: 58.3326}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1235313243
 MonoBehaviour:
@@ -1011,8 +1011,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -439.84787, y: 260}
-  m_SizeDelta: {x: 704.5857, y: 57.9257}
+  m_AnchoredPosition: {x: -403.95273, y: 261.63733}
+  m_SizeDelta: {x: 776.376, y: 58.3326}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1301339522
 MonoBehaviour:
@@ -1090,8 +1090,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -280.6608, y: 55.851486}
-  m_SizeDelta: {x: 386.2131, y: 57.9257}
+  m_AnchoredPosition: {x: -228.54605, y: 56.054916}
+  m_SizeDelta: {x: 425.5644, y: 58.3326}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1498407969
 MonoBehaviour:
@@ -1217,6 +1217,7 @@ MonoBehaviour:
   FloatingPointsAsset: {fileID: 5536136929512152186, guid: 6d508d0466612ce4ca765181d0e1606b, type: 3}
   KurczakElement: {fileID: 121854291}
   Canvas: {fileID: 204974817}
+  WiecejKurczakowButtonTekst: {fileID: 188462562}
   EcoWybiegButtonText: {fileID: 1728984211}
   PunktyText: {fileID: 1498407967}
   EcoText: {fileID: 1301339520}

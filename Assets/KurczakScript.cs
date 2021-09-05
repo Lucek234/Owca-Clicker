@@ -15,7 +15,29 @@ public class KurczakScript : MonoBehaviour
     public GameObject FloatingPointsAsset;
     public GameObject KurczakElement;
     public GameObject Canvas;
+    public Text WiecejKurczakowButtonTekst;
+
+    public Text WiecejKurczakowTekst;
+
+    public Text AutoZbieraczButtonText;
+    public Text AutoZbieraczText;
+    
+    public int AutoZbieraczeJaj
+    {
+        get => SaveGame.KurczakAutoZbieraczJaj;
+        set => SaveGame.KurczakAutoZbieraczJaj = value;
+    }
+
+    public int CenaAutoZbieraczJaj => 3000 * (int)Mathf.Pow(3, AutoZbieraczeJaj);
+    
     public int CenaEko => 500 *(int) Mathf.Pow(2, EcoLevel);
+    public int CenaKurczoka => 1000*(int)Mathf.Pow(4, LiczbaKurczokow);
+    public int KurczakDeltaPoints => 5 * EcoLevel * LiczbaKurczokow;
+    public int LiczbaKurczokow
+    {
+        get => SaveGame.LiczbaKurczokow;
+        set => SaveGame.LiczbaKurczokow = value;
+    }
     private void Start()
     {
         try
@@ -35,7 +57,7 @@ public class KurczakScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        UpdatePoints();
     }
 
     public int Points
@@ -56,14 +78,12 @@ public class KurczakScript : MonoBehaviour
         floating.GetComponent<RectTransform>().anchoredPosition = KurczakElement.GetComponent<RectTransform>().anchoredPosition + randPos;
     }
 
-    public int KurczakDeltaPoints => 5 * EcoLevel;
 
     public void OnKurczakClick()
     {
-        var deltaPoints = KurczakDeltaPoints;
         Points +=KurczakDeltaPoints;
         UpdatePoints();
-        ShowAddPoints(deltaPoints, Color.white);
+        ShowAddPoints(KurczakDeltaPoints, Color.white);
     }
 
     public void OnEcoWybiegButtonClick()
@@ -83,6 +103,25 @@ public class KurczakScript : MonoBehaviour
         PunktyText.GetComponent<Text>().text = $"Punkty: {Points}p";
         EcoText.GetComponent<Text>().text = $"Poziom eko: {EcoLevel}";
         EcoWybiegButtonText.GetComponent<Text>().text = $"Rozwoj eko:\n{CenaEko}";
+        WiecejKurczakowButtonTekst.text = $"Kup kurczaka\n({CenaKurczoka})";
+        WiecejKurczakowTekst.text = $"Liczba kurczaków: {LiczbaKurczokow}";
+        AutoZbieraczButtonText.text = $"Zatrudnij zbieracza jaj\n{CenaAutoZbieraczJaj}";
+        AutoZbieraczText.text = $"";
         SaveGame.Save();
+    }
+
+    public void ZatrudnijAutoZbieraczaJaj() {
+        if (Points < CenaAutoZbieraczJaj) return;
+        Points -= CenaAutoZbieraczJaj;
+        AutoZbieraczeJaj += 1;
+
+    }
+
+    public void KupKurczoka()
+    {
+        if (Points < CenaKurczoka) return;
+        Points -= CenaKurczoka;
+        LiczbaKurczokow += 1;
+
     }
 }

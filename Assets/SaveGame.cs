@@ -13,6 +13,9 @@ namespace Assets
        public int Points;
         public int EkoLevel = 1;
 
+        public int LiczbaKurczokow = 0;
+        public int KurczakAutoZbieraczJaj = 0;
+
         internal void Save()
         {
             var path = Path.Combine(Application.persistentDataPath, "save.dat");
