@@ -63,6 +63,7 @@
     <Compile Include="Assets\NozyczkiScript.cs" />
     <Compile Include="Assets\HomeScript.cs" />
     <Compile Include="Assets\FloatingPointsScript.cs" />
+    <Compile Include="Assets\VacuumScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

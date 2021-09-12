@@ -508,6 +508,7 @@ RectTransform:
   - {fileID: 1235313242}
   - {fileID: 1301339521}
   - {fileID: 1684218541}
+  - {fileID: 1108280210}
   m_Father: {fileID: 1182427749}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -589,7 +590,7 @@ GameObject:
   - component: {fileID: 544389008}
   - component: {fileID: 544389007}
   m_Layer: 5
-  m_Name: Text
+  m_Name: AutoJajaButtonTekst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -690,8 +691,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -134.68631, y: 191.14566}
-  m_SizeDelta: {x: 237.843, y: 58.3326}
+  m_AnchoredPosition: {x: -326.98868, y: 191.14566}
+  m_SizeDelta: {x: 622.4481, y: 58.3326}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &561165849
 MonoBehaviour:
@@ -747,7 +748,7 @@ GameObject:
   - component: {fileID: 804175703}
   - component: {fileID: 804175702}
   m_Layer: 5
-  m_Name: Text
+  m_Name: LepszaPaszaButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -813,6 +814,94 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804175700}
+  m_CullTransparentMesh: 1
+--- !u!1 &1108280209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1108280210}
+  - component: {fileID: 1108280213}
+  - component: {fileID: 1108280212}
+  - component: {fileID: 1108280211}
+  m_Layer: 5
+  m_Name: Vacuum
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1108280210
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108280209}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -6, y: 6, z: 1}
+  m_Children: []
+  m_Father: {fileID: 204974818}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -382.2, y: -94.3}
+  m_SizeDelta: {x: 96, y: 144}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1108280211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108280209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ed5f7b8cb84ff4c8f5f26388022b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1108280212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108280209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: fdbef24fa89322a4fa2e902b24e277ba, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1108280213
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108280209}
   m_CullTransparentMesh: 1
 --- !u!1 &1182427746
 GameObject:
@@ -932,8 +1021,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -228.5452, y: 120.65399}
-  m_SizeDelta: {x: 425.561, y: 58.3326}
+  m_AnchoredPosition: {x: -558.88, y: 120.65399}
+  m_SizeDelta: {x: 1086.2, y: 58.3326}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1235313243
 MonoBehaviour:
@@ -1214,13 +1303,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a354bd181d1633488dcd0652f354e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AutoZbieraczButtonText: {fileID: 544389007}
+  Canvas: {fileID: 204974817}
+  EcoText: {fileID: 1301339520}
+  EcoWybiegButtonText: {fileID: 1728984211}
   FloatingPointsAsset: {fileID: 5536136929512152186, guid: 6d508d0466612ce4ca765181d0e1606b, type: 3}
   KurczakElement: {fileID: 121854291}
-  Canvas: {fileID: 204974817}
-  WiecejKurczakowButtonTekst: {fileID: 188462562}
-  EcoWybiegButtonText: {fileID: 1728984211}
   PunktyText: {fileID: 1498407967}
-  EcoText: {fileID: 1301339520}
+  WiecejKurczakowButtonTekst: {fileID: 188462562}
+  LepszaPaszaButtonText: {fileID: 804175702}
+  WiecejKurczakowTekst: {fileID: 561165849}
+  AutoJajaText: {fileID: 1235313243}
+  JajoAsset: {fileID: 5467143947013093533, guid: d771ced62823526438b80ebf8a28faaf, type: 3}
 --- !u!1 &1684218540
 GameObject:
   m_ObjectHideFlags: 0
@@ -1648,7 +1742,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1793152870}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1554991726}
+        m_TargetAssemblyTypeName: KurczakScript, Assembly-CSharp
+        m_MethodName: KupKurczoka
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1793152870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1844,7 +1950,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2113320643}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1554991726}
+        m_TargetAssemblyTypeName: KurczakScript, Assembly-CSharp
+        m_MethodName: ZatrudnijAutoZbieraczaJaj
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2113320643
 MonoBehaviour:
   m_ObjectHideFlags: 0

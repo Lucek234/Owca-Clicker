@@ -1,45 +1,73 @@
+﻿using System.Collections;
 using Assets;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class KurczakScript : MonoBehaviour
 {
+    public Text AutoZbieraczButtonText;
+    public GameObject Canvas;
+    public GameObject EcoText;
+
+    public GameObject EcoWybiegButtonText;
+    public GameObject FloatingPointsAsset;
+    public GameObject KurczakElement;
+    public GameObject PunktyText;
+    public Text WiecejKurczakowButtonTekst;
+    public Text LepszaPaszaButtonText;
+    public Text WiecejKurczakowTekst;
+    public Text AutoJajaText;
     public int EcoLevel
     {
         get => SaveGame.EkoLevel;
         set => SaveGame.EkoLevel = value;
     }
-    SaveGame SaveGame { get; set; }
-    public GameObject FloatingPointsAsset;
-    public GameObject KurczakElement;
-    public GameObject Canvas;
-    public Text WiecejKurczakowButtonTekst;
 
-    public Text WiecejKurczakowTekst;
+    private SaveGame SaveGame { get; set; }
 
-    public Text AutoZbieraczButtonText;
-    public Text AutoZbieraczText;
-    
     public int AutoZbieraczeJaj
     {
         get => SaveGame.KurczakAutoZbieraczJaj;
         set => SaveGame.KurczakAutoZbieraczJaj = value;
     }
 
-    public int CenaAutoZbieraczJaj => 3000 * (int)Mathf.Pow(3, AutoZbieraczeJaj);
-    
-    public int CenaEko => 500 *(int) Mathf.Pow(2, EcoLevel);
-    public int CenaKurczoka => 1000*(int)Mathf.Pow(4, LiczbaKurczokow);
+    public int CenaAutoZbieraczJaj => 3000 * (int) Mathf.Pow(3, AutoZbieraczeJaj);
+
+    public int CenaEko => 1000 * (int) Mathf.Pow(2, EcoLevel);
+    public int CenaKurczoka => 1000 * (int) Mathf.Pow(4, LiczbaKurczokow);
     public int KurczakDeltaPoints => 5 * EcoLevel * LiczbaKurczokow;
+
+    public int CenaLepszejPaszy => 5000 * PoziomLepszejPaszy;
+    public int PoziomLepszejPaszy
+    {
+        get => SaveGame.KurczakLepszaPaszaLevel;
+        set => SaveGame.KurczakLepszaPaszaLevel = value;
+    }
+
     public int LiczbaKurczokow
     {
         get => SaveGame.LiczbaKurczokow;
         set => SaveGame.LiczbaKurczokow = value;
     }
+
+    public int Points
+    {
+        get => SaveGame.Points;
+        set => SaveGame.Points = value;
+    }
+
+
+    public int LiczbaOkresu
+    {
+        get => SaveGame.KurczokLiczbaPrzyspieszenia;
+        set => SaveGame.KurczokLiczbaPrzyspieszenia = value;
+    }
+
+    private float OkresCzasu => 9.5f / (1 + LiczbaOkresu) + 0.5f;
+
     private void Start()
     {
+
         try
         {
             SaveGame = SaveGame.Load();
@@ -52,36 +80,44 @@ public class KurczakScript : MonoBehaviour
         UpdatePoints();
     }
 
-
+    private float timer = 0;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        if (timer > OkresCzasu)
+        {
+            timer = 0;
+            WezwijZbieraczaJaj();
+        }
+
+        timer += Time.deltaTime;
         UpdatePoints();
     }
 
-    public int Points
+    public void WezwijZbieraczaJaj()
     {
-        get => SaveGame.Points;
-        set => SaveGame.Points = value;
+        var jajo = Instantiate(JajoAsset, Canvas.transform);
     }
-    private void ShowAddPoints(int addPoints, Color color, int fontSize = 30)
+    public GameObject JajoAsset;kts(int addPoints, Color color, int fontSize = 30)
     {
-        GameObject floating = Instantiate(FloatingPointsAsset, Canvas.transform);
-        Text textComp = floating.GetComponent<Text>();
+  
+      var floating = Instantiate(FloatingPointsAsset, Canvas.transform);
+        var textComp = floating.GetComponent<Text>();
         textComp.text = $"+{addPoints}p";
         textComp.color = color;
         textComp.fontSize = fontSize;
-        int dx = UnityEngine.Random.Range(-100, 100);
-        int dy = UnityEngine.Random.Range(-50, 100);
-        Vector2 randPos = new Vector2(dx, dy);
-        floating.GetComponent<RectTransform>().anchoredPosition = KurczakElement.GetComponent<RectTransform>().anchoredPosition + randPos;
+        var dx = Random.Range(-100, 100);
+        var dy = Random.Range(-50, 100);
+        var randPos = new Vector2(dx, dy);
+        floating.GetComponent<RectTransform>().anchoredPosition =
+            KurczakElement.GetComponent<RectTransform>().anchoredPosition + randPos;
     }
 
 
     public void OnKurczakClick()
     {
-        Points +=KurczakDeltaPoints;
+        Points += KurczakDeltaPoints;
         UpdatePoints();
         ShowAddPoints(KurczakDeltaPoints, Color.white);
     }
@@ -92,29 +128,27 @@ public class KurczakScript : MonoBehaviour
         Points -= CenaEko;
         EcoLevel += 1;
         UpdatePoints();
-
     }
-
-    public GameObject EcoWybiegButtonText;
-    public GameObject PunktyText;
-    public GameObject EcoText;
+    
     public void UpdatePoints()
     {
         PunktyText.GetComponent<Text>().text = $"Punkty: {Points}p";
         EcoText.GetComponent<Text>().text = $"Poziom eko: {EcoLevel}";
         EcoWybiegButtonText.GetComponent<Text>().text = $"Rozwoj eko:\n{CenaEko}";
         WiecejKurczakowButtonTekst.text = $"Kup kurczaka\n({CenaKurczoka})";
-        WiecejKurczakowTekst.text = $"Liczba kurczak�w: {LiczbaKurczokow}";
+        WiecejKurczakowTekst.text = $"Liczba kurczaków: {LiczbaKurczokow}";
         AutoZbieraczButtonText.text = $"Zatrudnij zbieracza jaj\n{CenaAutoZbieraczJaj}";
-        AutoZbieraczText.text = $"";
+        LepszaPaszaButtonText.text = $"Kup lepszą paszę\n{CenaLepszejPaszy}";
+        AutoJajaText.text = $"Auto jaja {AutoZbieraczeJaj}p/{OkresCzasu:n1}s";
         SaveGame.Save();
     }
 
-    public void ZatrudnijAutoZbieraczaJaj() {
+
+    public void ZatrudnijAutoZbieraczaJaj()
+    {
         if (Points < CenaAutoZbieraczJaj) return;
         Points -= CenaAutoZbieraczJaj;
         AutoZbieraczeJaj += 1;
-
     }
 
     public void KupKurczoka()
@@ -122,6 +156,7 @@ public class KurczakScript : MonoBehaviour
         if (Points < CenaKurczoka) return;
         Points -= CenaKurczoka;
         LiczbaKurczokow += 1;
-
     }
+
+
 }
