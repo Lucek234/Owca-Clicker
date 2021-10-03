@@ -19,6 +19,7 @@ namespace Assets
         public int Points;
         public int KurczakLepszaPaszaLevel = 0;
         public int KurczokLiczbaPrzyspieszenia = 0;
+        public int KurczokLiczbaLepszejPaszy = 0;
 
         internal void Save()
         {
@@ -31,6 +32,7 @@ namespace Assets
         {
             var path = Path.Combine(Application.persistentDataPath, "save.dat");
             var str = File.ReadAllText(path);
+            if (string.IsNullOrWhiteSpace(str)) throw new Exception();
             var saveGame = JsonUtility.FromJson<SaveGame>(str);
             return saveGame;
         }
