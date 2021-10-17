@@ -3,73 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class ZwierzeScript : MonoBehaviour
-{
-
-    public Text Button1Label1;
-    public Text Label1;
-    public Text Button1Label2;
-    public Text Label2;
-    public Text Button1Label3;
-    public Text Label3;
-    public Text Button1Label4;
-    public Text Label4;
-
-    public int Button1Cost { get; set; }
-    public int Button2Cost { get; set; }
-    public int Button3Cost { get; set; }
-    public int Button4Cost { get; set; }
-    public int ButtonLevel1 { get; set; }
-    public int ButtonLevel2 { get; set; }
-    public int ButtonLevel3 { get; set; }
-    public int ButtonLevel4 { get; set; }
-    public int Points { get; set; }
-    public void Start()
-    {
-
-    }
-
-    public void Update()
-    {
-        PointsUpdate();
-    }
-
-    public void PointsUpdate()
-    {
-
-    }
-
-    public void Button1()
-    {
-        if (Points < Button1Cost) return;
-        Points -= Button1Cost;
-        ButtonLevel1 += 1;
-    }
-
-    public void Button2()
-    {
-
-        if (Points < Button2Cost) return;
-        Points -= Button2Cost;
-        ButtonLevel2+= 1;
-    }
-
-    public void Button3()
-    {
-
-        if (Points < Button3Cost) return;
-        Points -= Button3Cost;
-        ButtonLevel3 += 1;
-    }
-
-    public void Button4()
-    {
-
-        if (Points < Button4Cost) return;
-        Points -= Button4Cost;
-        ButtonLevel4 += 1;
-    }
-}
 public class KurczakScript : MonoBehaviour
 {
     public Text AutoJajaText;
@@ -96,6 +29,9 @@ public class KurczakScript : MonoBehaviour
 
     private SaveGame SaveGame { get; set; } = new SaveGame();
 
+    /// <summary>
+    /// Przycisk 3 - liczba autozbieraczy jaj. Definiuje jak czesto pojawia sie jajo i jest zgarniane przez odkurzacz.
+    /// </summary>
     public int AutoZbieraczeJaj
     {
         get => SaveGame.KurczakAutoZbieraczJaj;
@@ -108,7 +44,7 @@ public class KurczakScript : MonoBehaviour
     public int CenaKurczoka => 1000 * (int) Mathf.Pow(4, LiczbaKurczokow);
     public int KurczakDeltaPoints => 5 * EcoLevel * LiczbaKurczokow;
 
-    public int CenaLepszejPaszy => 5000 * (PoziomLepszejPaszy+1);
+    public int CenaLepszejPaszy => 5000 * (int) Mathf.Pow(5,PoziomLepszejPaszy);
 
     public int PoziomLepszejPaszy
     {
@@ -129,6 +65,12 @@ public class KurczakScript : MonoBehaviour
     }
 
     VacuumScript vacuum;
+    public int AddJajoPunkty()
+    {
+        var points = AutoZbieraczeJaj;
+        Points += points;
+        return points;
+    }
 
     private float OkresCzasu => 9.5f / (1 + PoziomLepszejPaszy) + 0.5f;
 
@@ -146,14 +88,14 @@ public class KurczakScript : MonoBehaviour
         }
 
         vacuum =        GameObject.Find("Vacuum").GetComponent<VacuumScript>();
-        Points += 100000000;
+        //Points += 100000000;
         UpdatePoints();
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (timer > OkresCzasu)
+        if (timer > OkresCzasu && AutoZbieraczeJaj > 0)
         {
             timer = 0;
             WezwijZbieraczaJaj();
@@ -169,7 +111,7 @@ public class KurczakScript : MonoBehaviour
     }
 
 
-    private void ShowAddPoints(int addPoints, Color color, int fontSize = 30)
+    public void ShowAddPoints(int addPoints, Color color, int fontSize = 30)
     {
         var floating = Instantiate(FloatingPointsAsset, Canvas.transform);
         var textComp = floating.GetComponent<Text>();
@@ -194,7 +136,7 @@ public class KurczakScript : MonoBehaviour
 
     public void OnEcoWybiegButtonClick()
     {
-        if (Points < CenaEko) return;
+        if (Points < CenaEko|| LiczbaKurczokow == 0) return;
         Points -= CenaEko;
         EcoLevel += 1;
         UpdatePoints();
@@ -219,7 +161,7 @@ public class KurczakScript : MonoBehaviour
 
     public void ZatrudnijAutoZbieraczaJaj()
     {
-        if (Points < CenaAutoZbieraczJaj) return;
+        if (Points < CenaAutoZbieraczJaj || LiczbaKurczokow ==0) return;
         Points -= CenaAutoZbieraczJaj;
         AutoZbieraczeJaj += 1;
     }
@@ -233,7 +175,7 @@ public class KurczakScript : MonoBehaviour
 
     public void OnLepszaPaszaButtonClick()
     {
-        if (Points < CenaLepszejPaszy) return;
+        if (Points < CenaLepszejPaszy || LiczbaKurczokow == 0) return;
         Points -= CenaLepszejPaszy;
         PoziomLepszejPaszy += 1;
     }

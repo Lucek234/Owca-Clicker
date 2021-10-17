@@ -6,6 +6,7 @@ public class HomeScript : MonoBehaviour, IPointerClickHandler
 {
     public void OnPointerClick(PointerEventData eventData)
     {
+       HomeSceneScript.LastScene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene("HomeScreen", LoadSceneMode.Single);
     }
 

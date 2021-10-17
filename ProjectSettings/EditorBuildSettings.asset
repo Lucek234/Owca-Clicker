@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/KurczakScreen.unity
     guid: 8154c0d2a267e4c4883977be6c4f7e18
+  - enabled: 1
+    path: Assets/Scenes/KrowaScreen.unity
+    guid: 7638c533058b7b64d801fd1a4f96adaa
   m_configObjects: {}

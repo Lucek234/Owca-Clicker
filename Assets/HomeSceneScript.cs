@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class HomeSceneScript : MonoBehaviour
 {
+    public static string LastScene { get; set; }
     // Start is called before the first frame update
     private void Start()
     {
@@ -14,7 +15,10 @@ public class HomeSceneScript : MonoBehaviour
     }
 
     public void GoBack()
-    {
+    {if (LastScene != null) { 
+            SceneManager.LoadScene(LastScene, LoadSceneMode.Single); 
+            return;
+        }
         SceneManager.LoadScene("OwcaScreen", LoadSceneMode.Single);
     }
 
@@ -30,7 +34,7 @@ public class HomeSceneScript : MonoBehaviour
 
     public void GoKrowa()
     {
-        SceneManager.LoadScene("OwcaScreen", LoadSceneMode.Single);
+        SceneManager.LoadScene("KrowaScreen", LoadSceneMode.Single);
     }
 
     public void GoKoza()

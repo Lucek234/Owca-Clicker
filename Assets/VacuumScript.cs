@@ -11,10 +11,13 @@ public class VacuumScript : MonoBehaviour
     public float TimeC;
     public GameObject Egg;
     private float time = 0;
+    private KurczakScript kurczak;
+    public GameObject Kurczak;
 
     // Start is called before the first frame update
     void Start()
     {
+        kurczak = Kurczak.GetComponent<KurczakScript>();
         if (TimeA == 0) TimeA = 0.01f;
         if (TimeB == 0) TimeB = 0.01f;
         if (TimeC == 0) TimeC = 0.01f;
@@ -33,6 +36,8 @@ public class VacuumScript : MonoBehaviour
         }
         else if (time < TimeA + TimeB)
         {
+            var punkty = kurczak.AddJajoPunkty();
+            kurczak.ShowAddPoints(punkty, new Color(0.8f,0.1f,0.9f));
             Destroy(Egg);
         }
         else if (time < TimeA + TimeB + TimeC)

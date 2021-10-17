@@ -23,14 +23,14 @@ namespace Assets
 
         internal void Save()
         {
-            var path = Path.Combine(Application.persistentDataPath, "save.dat");
+            var path = Path.Combine(Application.persistentDataPath, "save.json");
             var str = JsonUtility.ToJson(this);
             File.WriteAllText(path, str);
         }
 
         public static SaveGame Load()
         {
-            var path = Path.Combine(Application.persistentDataPath, "save.dat");
+            var path = Path.Combine(Application.persistentDataPath, "save.json");
             var str = File.ReadAllText(path);
             if (string.IsNullOrWhiteSpace(str)) throw new Exception();
             var saveGame = JsonUtility.FromJson<SaveGame>(str);
