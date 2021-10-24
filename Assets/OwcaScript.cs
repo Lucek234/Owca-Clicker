@@ -20,7 +20,7 @@ public class OwcaScript : MonoBehaviour
 
     public GameObject NozyczkiAsset;
     public GameObject PointsElement;
-    public SaveGame SaveGame = new SaveGame();
+    public SaveGame SaveGame => SaveGame.Instance;
 
     public GameObject SheepElement;
     private float timer;
@@ -68,15 +68,6 @@ public class OwcaScript : MonoBehaviour
 
     private void Start()
     {
-        try
-        {
-            SaveGame = SaveGame.Load();
-        }
-        catch
-        {
-            SaveGame = new SaveGame();
-        }
-
         UpdatePoints();
     }
 

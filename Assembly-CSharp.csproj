@@ -61,13 +61,13 @@
     <Compile Include="Assets\EggScript.cs" />
     <Compile Include="Assets\HomeSceneScript.cs" />
     <Compile Include="Assets\KurczakScript.cs" />
+    <Compile Include="Assets\KrowaScript.cs" />
+    <Compile Include="Assets\KozaScript.cs" />
     <Compile Include="Assets\SaveGame.cs" />
-    <Compile Include="Assets\NewEditorScript1.cs" />
+    <Compile Include="Assets\ZwierzeScript.cs" />
     <Compile Include="Assets\NozyczkiScript.cs" />
     <Compile Include="Assets\HomeScript.cs" />
     <Compile Include="Assets\FloatingPointsScript.cs" />
-    <Compile Include="Assets\KrowaScript.cs" />
-    <Compile Include="Assets\KozaScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

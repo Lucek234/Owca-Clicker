@@ -27,7 +27,7 @@ public class KurczakScript : MonoBehaviour
         set => SaveGame.EkoLevel = value;
     }
 
-    private SaveGame SaveGame { get; set; } = new SaveGame();
+    private SaveGame SaveGame => SaveGame.Instance;
 
     /// <summary>
     /// Przycisk 3 - liczba autozbieraczy jaj. Definiuje jak czesto pojawia sie jajo i jest zgarniane przez odkurzacz.
@@ -78,15 +78,6 @@ public class KurczakScript : MonoBehaviour
 
     private void Start()
     {
-        try
-        {
-            SaveGame = SaveGame.Load();
-        }
-        catch
-        {
-            SaveGame = new SaveGame();
-        }
-
         vacuum =        GameObject.Find("Vacuum").GetComponent<VacuumScript>();
         //Points += 100000000;
         UpdatePoints();

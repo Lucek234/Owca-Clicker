@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/KrowaScreen.unity
     guid: 7638c533058b7b64d801fd1a4f96adaa
+  - enabled: 1
+    path: Assets/Scenes/KozaScreen.unity
+    guid: b3a743c7459a85d4a8bf0dfdaf3d316a
   m_configObjects: {}

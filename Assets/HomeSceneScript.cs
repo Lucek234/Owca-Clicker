@@ -15,11 +15,8 @@ public class HomeSceneScript : MonoBehaviour
     }
 
     public void GoBack()
-    {if (LastScene != null) { 
-            SceneManager.LoadScene(LastScene, LoadSceneMode.Single); 
-            return;
-        }
-        SceneManager.LoadScene("OwcaScreen", LoadSceneMode.Single);
+    {
+        SceneManager.LoadScene(LastScene ?? "OwcaScreen", LoadSceneMode.Single); 
     }
 
     public void GoOwca()
@@ -39,6 +36,6 @@ public class HomeSceneScript : MonoBehaviour
 
     public void GoKoza()
     {
-        SceneManager.LoadScene("OwcaScreen", LoadSceneMode.Single);
+        SceneManager.LoadScene("KozaScreen", LoadSceneMode.Single);
     }
 }

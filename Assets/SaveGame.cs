@@ -21,7 +21,7 @@ namespace Assets
         public int KurczokLiczbaPrzyspieszenia = 0;
         public int KurczokLiczbaLepszejPaszy = 0;
 
-        internal void Save()
+        public void Save()
         {
             var path = Path.Combine(Application.persistentDataPath, "save.json");
             var str = JsonUtility.ToJson(this);
@@ -30,11 +30,26 @@ namespace Assets
 
         public static SaveGame Load()
         {
-            var path = Path.Combine(Application.persistentDataPath, "save.json");
-            var str = File.ReadAllText(path);
-            if (string.IsNullOrWhiteSpace(str)) throw new Exception();
-            var saveGame = JsonUtility.FromJson<SaveGame>(str);
-            return saveGame;
+            try
+            {
+                var path = Path.Combine(Application.persistentDataPath, "save.json");
+                var str = File.ReadAllText(path);
+                if (string.IsNullOrWhiteSpace(str)) throw new Exception();
+                var saveGame = JsonUtility.FromJson<SaveGame>(str);
+                return saveGame;
+            }
+            catch
+            {
+                return new SaveGame();
+            }
         }
+
+        private SaveGame() { }
+
+        public static SaveGame Instance { get; } = SaveGame.Load();
+        public int KozaLevel1;
+        public int KozaLevel2;
+        public int KozaLevel3;
+        public int KozaLevel4;
     }
 }
