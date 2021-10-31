@@ -155,12 +155,12 @@ RectTransform:
   m_Children:
   - {fileID: 1957700949}
   m_Father: {fileID: 197424615}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 129, y: -207.9}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 170, y: -260}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &70978382
 MonoBehaviour:
@@ -207,8 +207,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 636041430}
-        m_TargetAssemblyTypeName: KrowaScript, Assembly-CSharp
-        m_MethodName: Button4Click
+        m_TargetAssemblyTypeName: ZwierzeScript, Assembly-CSharp
+        m_MethodName: Button4
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -287,7 +287,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 418524901}
-  - {fileID: 1470961897}
   - {fileID: 251437154}
   - {fileID: 936282514}
   - {fileID: 1875451929}
@@ -297,6 +296,7 @@ RectTransform:
   - {fileID: 792385099}
   - {fileID: 1934381836}
   - {fileID: 493206827}
+  - {fileID: 1470961897}
   m_Father: {fileID: 1476516696}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -398,12 +398,12 @@ RectTransform:
   m_Children:
   - {fileID: 986707466}
   m_Father: {fileID: 197424615}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 129, y: -49}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 170, y: -50}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &251437155
 MonoBehaviour:
@@ -450,8 +450,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 636041430}
-        m_TargetAssemblyTypeName: KrowaScript, Assembly-CSharp
-        m_MethodName: Button1Click
+        m_TargetAssemblyTypeName: ZwierzeScript, Assembly-CSharp
+        m_MethodName: Button1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -603,7 +603,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 197424615}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -862,25 +862,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b82becde2b46b9046afea0345136a6b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Button1Text: {fileID: 986707467}
-  Button2Text: {fileID: 1746085604}
-  Button3Text: {fileID: 575553843}
-  Button4Text: {fileID: 1957700950}
-  Label1Text: {fileID: 703982845}
-  Label2Text: {fileID: 1330579071}
-  Label3Text: {fileID: 792385100}
-  Label4Text: {fileID: 1934381837}
-  Krowa: {fileID: 1470961896}
+  Canvas: {fileID: 197424614}
+  Button1Label: {fileID: 986707467}
+  Label1: {fileID: 703982845}
+  Button2Label: {fileID: 1746085604}
+  Label2: {fileID: 1330579071}
+  Button3Label: {fileID: 575553843}
+  Label3: {fileID: 792385100}
+  Button4Label: {fileID: 1957700950}
+  Label4: {fileID: 1934381837}
+  Zwierze: {fileID: 1470961896}
   FloatingPointsAsset: {fileID: 5536136929512152186, guid: 6d508d0466612ce4ca765181d0e1606b, type: 3}
-  Button1Cost: 0
-  Button2Cost: 0
-  Button3Cost: 0
-  Button4Cost: 0
-  Points: 0
-  PointsA: 0
-  PointsB: 0
-  PointsC: 0
-  PointsD: 0
+  AnimalName: Krowa
+  BazowePunkty: 25
 --- !u!1 &703982843
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,12 +905,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 197424615}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -180.57422, y: 47.09607}
-  m_SizeDelta: {x: 333.1483, y: 64.1921}
+  m_AnchoredPosition: {x: -295.12793, y: 47.09607}
+  m_SizeDelta: {x: 562.2556, y: 64.1921}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &703982845
 MonoBehaviour:
@@ -990,12 +984,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 197424615}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -180.57422, y: 210.5}
-  m_SizeDelta: {x: 333.1483, y: 64.1921}
+  m_AnchoredPosition: {x: -304.56177, y: 210.5}
+  m_SizeDelta: {x: 581.1233, y: 64.1921}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &792385100
 MonoBehaviour:
@@ -1071,12 +1065,12 @@ RectTransform:
   m_Children:
   - {fileID: 1746085603}
   m_Father: {fileID: 197424615}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 129, y: -106}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 170, y: -120}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &936282515
 MonoBehaviour:
@@ -1123,8 +1117,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 636041430}
-        m_TargetAssemblyTypeName: KrowaScript, Assembly-CSharp
-        m_MethodName: Button2Click
+        m_TargetAssemblyTypeName: ZwierzeScript, Assembly-CSharp
+        m_MethodName: Button2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1281,12 +1275,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 197424615}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -180.57422, y: 131}
-  m_SizeDelta: {x: 333.1483, y: 64.1921}
+  m_AnchoredPosition: {x: -298.4972, y: 131}
+  m_SizeDelta: {x: 568.994, y: 64.1921}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1330579071
 MonoBehaviour:
@@ -1341,6 +1335,7 @@ GameObject:
   - component: {fileID: 1470961897}
   - component: {fileID: 1470961899}
   - component: {fileID: 1470961898}
+  - component: {fileID: 1470961900}
   m_Layer: 0
   m_Name: Krowo
   m_TagString: Untagged
@@ -1360,7 +1355,7 @@ RectTransform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 197424615}
-  m_RootOrder: 1
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1405,6 +1400,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470961896}
   m_CullTransparentMesh: 1
+--- !u!114 &1470961900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470961896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1470961898}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 636041430}
+        m_TargetAssemblyTypeName: ZwierzeScript, Assembly-CSharp
+        m_MethodName: OnZwierzeClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1476516693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1600,12 +1651,12 @@ RectTransform:
   m_Children:
   - {fileID: 575553842}
   m_Father: {fileID: 197424615}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 129, y: -159.3}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 170, y: -190}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1875451930
 MonoBehaviour:
@@ -1652,8 +1703,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 636041430}
-        m_TargetAssemblyTypeName: KrowaScript, Assembly-CSharp
-        m_MethodName: Button3Click
+        m_TargetAssemblyTypeName: ZwierzeScript, Assembly-CSharp
+        m_MethodName: Button3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1731,12 +1782,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 197424615}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -180.57422, y: 294}
-  m_SizeDelta: {x: 333.1483, y: 64.1921}
+  m_AnchoredPosition: {x: -243.2439, y: 294}
+  m_SizeDelta: {x: 458.4879, y: 64.1921}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1934381837
 MonoBehaviour:

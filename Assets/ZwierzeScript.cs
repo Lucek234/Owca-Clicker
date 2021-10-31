@@ -18,6 +18,13 @@ public abstract class ZwierzeScript : MonoBehaviour
     public GameObject Zwierze;
     public GameObject FloatingPointsAsset;
 
+    public int Points
+    {
+        get => SaveGame.Points;
+        set => SaveGame.Points = value;
+    }
+
+    public SaveGame SaveGame => SaveGame.Instance;
     public virtual string Button1LabelText { get; }
     public virtual string Button2LabelText { get; }
     public virtual string Button3LabelText { get; }
@@ -35,18 +42,35 @@ public abstract class ZwierzeScript : MonoBehaviour
     public virtual int Button2Level { get; set; }
     public virtual int Button3Level { get; set; }
     public virtual int Button4Level { get; set; }
-
     public virtual int ZwierzeDeltaPoints { get; }
-    public virtual int Points { get; set; }
+
+    public virtual int AutoPoints { get; } = 10;
+    public virtual float AutoTime { get; } = 10;
+
     public void Start()
     {
 
     }
-
+    float timer = 0;
     public void Update()
     {
+        var autoPoints = AutoPointsService.Instance.GetAutoPoints();
+        if (autoPoints > 0)
+        {
+
+        }
         PointsUpdate();
+        AutoPointsService.Update(Time.deltaTime);
     }
+
+    public virtual void AutoPointsUpdate(int points)
+    {
+        if (points == 0) return;
+        Points += points;
+        ShowAddPoints(points, new Color(255, 0, 255));
+    }
+
+    public string AnimalName;
 
     public void PointsUpdate()
     {
@@ -58,7 +82,12 @@ public abstract class ZwierzeScript : MonoBehaviour
         Label2Update();
         Label3Update();
         Label4Update();
+
+        AutoPointsService.UpdateAnimal(AnimalName, AutoPoints, AutoTime);
     }
+
+
+ public   AutoPointsService AutoPointsService => AutoPointsService.Instance;
 
     public void Button1Update() {    
         Button1Label.text = Button1LabelText;
@@ -80,10 +109,15 @@ public abstract class ZwierzeScript : MonoBehaviour
     public virtual void Label2Update() {
         Label2.text = Label2Text;
     }
-    public virtual void Label3Update() { }
-    public virtual void Label4Update() { }
+    public virtual void Label3Update()
+    {
+        Label3.text = Label3Text;
+    }
+    public virtual void Label4Update()
+    {
+        Label4.text = Label4Text;
+    }
 
-    SaveGame SaveGame => SaveGame.Instance;
     void Save()
     {
         SaveGame.Save();
@@ -138,6 +172,7 @@ public abstract class ZwierzeScript : MonoBehaviour
 
     }
 
+    public int BazowePunkty = 25;
 
     public void OnZwierzeClick()
     {

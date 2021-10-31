@@ -2,6 +2,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
 public class OwcaScript : MonoBehaviour
 {
     public Text AutoMatyczneNozyczki;
@@ -77,7 +79,7 @@ public class OwcaScript : MonoBehaviour
         if (timer >= Przyspieszenie)
         {
             timer = 0;
-            NozyczkiUpdate();
+            AutoPointsUpdate();
         }
 
         timer += Time.deltaTime;
@@ -118,7 +120,7 @@ public class OwcaScript : MonoBehaviour
     }
 
 
-    private void NozyczkiUpdate()
+    private void AutoPointsUpdate()
     {
         if (LiczbaAutoMatycznychNozyczek == 0) return;
         Points += AddPointsAutoNozyczki;

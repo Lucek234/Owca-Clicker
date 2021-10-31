@@ -47,6 +47,11 @@ namespace Assets
         private SaveGame() { }
 
         public static SaveGame Instance { get; } = SaveGame.Load();
+        public int KrowaLevel1;
+        public int KrowaLevel2;
+        public int KrowaLevel3;
+        public int KrowaLevel4;
+
         public int KozaLevel1;
         public int KozaLevel2;
         public int KozaLevel3;

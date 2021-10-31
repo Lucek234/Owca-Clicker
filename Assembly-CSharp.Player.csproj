@@ -68,6 +68,7 @@
     <Compile Include="Assets\NozyczkiScript.cs" />
     <Compile Include="Assets\HomeScript.cs" />
     <Compile Include="Assets\FloatingPointsScript.cs" />
+    <Compile Include="Assets\AutoPointsService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
