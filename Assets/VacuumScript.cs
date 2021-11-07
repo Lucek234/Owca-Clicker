@@ -10,7 +10,7 @@ public class VacuumScript : MonoBehaviour
     public float TimeB;
     public float TimeC;
     public GameObject Egg;
-    private float time = 0;
+    private float time => AutoPointsService.Instance.GetTimer("kurczak");
     private KurczakScript kurczak;
     public GameObject Kurczak;
 
@@ -28,7 +28,6 @@ public class VacuumScript : MonoBehaviour
     void Update()
     {
         if (!isActive) return;
-        time += Time.deltaTime;
 
         if (time < TimeA)
         {
@@ -50,7 +49,7 @@ public class VacuumScript : MonoBehaviour
     public void RunVacuum(GameObject egg)
     {
         isActive = true;
-        time = 0;
+        //time = 0;
         Egg = egg;
     }
 }

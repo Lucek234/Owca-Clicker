@@ -55,10 +55,7 @@ public abstract class ZwierzeScript : MonoBehaviour
     public void Update()
     {
         var autoPoints = AutoPointsService.Instance.GetAutoPoints();
-        if (autoPoints > 0)
-        {
-
-        }
+        AutoPointsUpdate(autoPoints);    
         PointsUpdate();
         AutoPointsService.Update(Time.deltaTime);
     }
@@ -169,7 +166,7 @@ public abstract class ZwierzeScript : MonoBehaviour
         var randPos = new Vector2(dx, dy);
         floating.GetComponent<RectTransform>().anchoredPosition =
             Zwierze.GetComponent<RectTransform>().anchoredPosition + randPos;
-
+        Save();
     }
 
     public int BazowePunkty = 25;

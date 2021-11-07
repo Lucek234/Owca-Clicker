@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class KurczakScript : MonoBehaviour
 {
+
+    string AnimalName = "kurczak";
     public Text AutoJajaText;
     public Text AutoZbieraczButtonText;
     public GameObject Canvas;
@@ -17,7 +19,7 @@ public class KurczakScript : MonoBehaviour
     public Text LepszaPaszaButtonText;
     public GameObject PunktyText;
 
-    private float timer;
+    private float timer => AutoPointsService.Instance.GetTimer("kurczak");
     public Text WiecejKurczakowButtonTekst;
     public Text WiecejKurczakowTekst;
 
@@ -42,7 +44,7 @@ public class KurczakScript : MonoBehaviour
 
     public int CenaEko => 1000 * (int) Mathf.Pow(2, EcoLevel);
     public int CenaKurczoka => 1000 * (int) Mathf.Pow(4, LiczbaKurczokow);
-    public int KurczakDeltaPoints => 5 * EcoLevel * LiczbaKurczokow;
+    public int AutoPoints => 5 * EcoLevel * LiczbaKurczokow;
 
     public int CenaLepszejPaszy => 5000 * (int) Mathf.Pow(5,PoziomLepszejPaszy);
 
@@ -72,7 +74,7 @@ public class KurczakScript : MonoBehaviour
         return points;
     }
 
-    private float OkresCzasu => 9.5f / (1 + PoziomLepszejPaszy) + 0.5f;
+    private float AutoTime => 9.5f / (1 + PoziomLepszejPaszy) + 0.5f;
 
     public int LiczbaLepszejPaszy { get=> SaveGame.KurczokLiczbaLepszejPaszy; set=>SaveGame.KurczokLiczbaLepszejPaszy=value; }
 
@@ -86,15 +88,28 @@ public class KurczakScript : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (timer > OkresCzasu && AutoZbieraczeJaj > 0)
+        if (timer > AutoTime && AutoZbieraczeJaj > 0)
         {
-            timer = 0;
+            //timer = 0;
             WezwijZbieraczaJaj();
         }
 
-        timer += Time.deltaTime;
+        var autoPoints = AutoPointsService.Instance.GetAutoPoints();
+        Debug.Log($"Autopoints: {autoPoints}");
+        AutoPointsUpdate(autoPoints);
+        //timer += Time.deltaTime;
         UpdatePoints();
+        AutoPointsService.Instance.Update(Time.deltaTime);
     }
+
+
+    public void AutoPointsUpdate(int points)
+    {
+        if (points == 0) return;
+        Points += points;
+        ShowAddPoints(points, new Color(255, 0, 255));
+    }
+
 
     public void WezwijZbieraczaJaj()
     {
@@ -114,15 +129,15 @@ public class KurczakScript : MonoBehaviour
         var randPos = new Vector2(dx, dy);
         floating.GetComponent<RectTransform>().anchoredPosition =
             KurczakElement.GetComponent<RectTransform>().anchoredPosition + randPos;
-
+        SaveGame.Save();
     }
 
 
     public void OnKurczakClick()
     {
-        Points += KurczakDeltaPoints;
+        Points += AutoPoints;
         UpdatePoints();
-        ShowAddPoints(KurczakDeltaPoints, Color.white);
+        ShowAddPoints(AutoPoints, Color.white);
     }
 
     public void OnEcoWybiegButtonClick()
@@ -142,12 +157,17 @@ public class KurczakScript : MonoBehaviour
         WiecejKurczakowTekst.text = $"Liczba kurczaków: {LiczbaKurczokow}";
         AutoZbieraczButtonText.text = $"Zatrudnij zbieracza jaj\n{CenaAutoZbieraczJaj}";
         LepszaPaszaButtonText.text = $"Kup lepszą paszę\n{CenaLepszejPaszy}";
-        AutoJajaText.text = $"Auto jaja {AutoZbieraczeJaj}p/{OkresCzasu:n1}s";
+        AutoJajaText.text = $"Auto jaja {AutoZbieraczeJaj}p/{AutoTime:n1}s";
         SaveGame.Save();
-        vacuum.TimeA = OkresCzasu / 4;
-        vacuum.TimeB = OkresCzasu / 4;
-        vacuum.TimeC = OkresCzasu / 2;
+        vacuum.TimeA = AutoTime / 4;
+        vacuum.TimeB = AutoTime / 4;
+        vacuum.TimeC = AutoTime / 2;
+
+
+        AutoPointsService.Instance.UpdateAnimal(AnimalName, AutoPoints, AutoTime);
     }
+
+
 
 
     public void ZatrudnijAutoZbieraczaJaj()

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class OwcaScript : MonoBehaviour
 {
+
+    public string AnimalName = "owca";
     public Text AutoMatyczneNozyczki;
 
     public GameObject AutoNozyczkiElement;
@@ -25,7 +27,7 @@ public class OwcaScript : MonoBehaviour
     public SaveGame SaveGame => SaveGame.Instance;
 
     public GameObject SheepElement;
-    private float timer;
+    private float timer => AutoPointsService.Instance.GetTimer(AnimalName);
 
     public int Points
     {
@@ -57,7 +59,7 @@ public class OwcaScript : MonoBehaviour
     }
 
 
-    private int AddPointsAutoNozyczki => 1 * LiczbaAutoMatycznychNozyczek;
+    private int AutoPoints => 1 * LiczbaAutoMatycznychNozyczek;
 
     public int LiczbaPrzyspieszenia
     {
@@ -65,7 +67,7 @@ public class OwcaScript : MonoBehaviour
         set => SaveGame.OwcaLiczbaPrzyspieszenia = value;
     }
 
-    private float Przyspieszenie => 9.5f / (1 + LiczbaPrzyspieszenia) + 0.5f;
+    private float AutoTime => 9.5f / (1 + LiczbaPrzyspieszenia) + 0.5f;
 
 
     private void Start()
@@ -76,13 +78,9 @@ public class OwcaScript : MonoBehaviour
 
     private void Update()
     {
-        if (timer >= Przyspieszenie)
-        {
-            timer = 0;
             AutoPointsUpdate();
-        }
+        AutoPointsService.Instance.Update(Time.deltaTime);
 
-        timer += Time.deltaTime;
     }
 
 
@@ -122,11 +120,13 @@ public class OwcaScript : MonoBehaviour
 
     private void AutoPointsUpdate()
     {
-        if (LiczbaAutoMatycznychNozyczek == 0) return;
-        Points += AddPointsAutoNozyczki;
+        var points = AutoPointsService.Instance.GetAutoPoints();
+        if (points == 0) return;
+
+        Points += points;
         UpdatePoints();
         Instantiate(NozyczkiAsset, Canvas.transform);
-        ShowAddPoints(AddPointsAutoNozyczki, new Color(255, 0, 255));
+        ShowAddPoints(points, new Color(255, 0, 255));
     }
 
     public void BuySheep()
@@ -170,6 +170,7 @@ public class OwcaScript : MonoBehaviour
         var randPos = new Vector2(dx, dy);
         floating.GetComponent<RectTransform>().anchoredPosition =
             SheepElement.GetComponent<RectTransform>().anchoredPosition + randPos;
+        SaveGame.Save();
     }
 
     private void UpdatePoints()
@@ -185,9 +186,12 @@ public class OwcaScript : MonoBehaviour
         PointsElement.GetComponent<Text>().text = $"Punkty: {Points}p";
         LiczbaOwiecElement.GetComponent<Text>().text = $"Liczba owiec: {LiczbaOwiec}";
         AutoNozyczkiElement.GetComponent<Text>().text =
-            $"Auto Nożyczki: +{AddPointsAutoNozyczki}p/{Przyspieszenie:n1}s";
+            $"Auto Nożyczki: +{AutoPoints}p/{AutoTime:n1}s";
         LiczbaNozyczekElement.GetComponent<Text>().text = $"Liczba Nożyczek: {LiczbaNozyczek}";
 
         SaveGame.Save();
+
+
+        AutoPointsService.Instance.UpdateAnimal(AnimalName, AutoPoints, AutoTime);
     }
 }

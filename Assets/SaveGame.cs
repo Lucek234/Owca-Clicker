@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -56,5 +57,18 @@ namespace Assets
         public int KozaLevel2;
         public int KozaLevel3;
         public int KozaLevel4;
+
+        public List<AutoAnimal> AnimalsToUpdate = new List<AutoAnimal>();
+    }
+
+
+    [Serializable]
+    public class AutoAnimal
+    {
+        public float Timer;
+        public float AutoTime;
+        public int AutoPoints;
+        public string AnimalName;
     }
 }
+
